@@ -5,11 +5,14 @@ const mongoose = require('mongoose');
 
 const url = process.env.DB_URL
 
-async function mongo() {
-        await mongoose.connect(`${url}/csvFileUpload`);
-  }
-mongo().then(()=>{
-    console.log('Connected to mongoDB')
-}).catch((error)=>{
-    console.log('Unable to connect to mongoDB', error)
-})
+
+module.exports.connectUsingMongoose = async function(){
+    try{ await mongoose.connect(`${url}/CSVfiles`, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    });
+    console.log("MongoDB connected using mongoose");
+} catch (err) {
+    console.log(err);
+}
+}
