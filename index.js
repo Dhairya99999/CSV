@@ -5,7 +5,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const expressEjsLayouts = require('express-ejs-layouts');
-const db = require('./configs/mongoose')
+const db = require('./configs/mongoose.js')
 
 
 app.use(express.urlencoded({ extended: true }));
@@ -20,4 +20,6 @@ app.use('/', require('./routes/index.js'));
 app.listen(8000, (error) => {
     if(error) {console.log("error in server",error)}
     console.log("Server running on port 8000")
-})
+});
+
+db.connectUsingMongoose();
