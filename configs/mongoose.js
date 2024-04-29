@@ -1,9 +1,7 @@
-const dotenv = require('dotenv')
-dotenv.config();
 
 const mongoose = require('mongoose');
 
-const url = process.env.DB_URL
+const url = mongodb+srv://dhairyajan9:Dhairya9@cluster.7a0qckj.mongodb.net/
 
 
 module.exports.connectUsingMongoose = async function(){
